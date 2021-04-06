@@ -10,7 +10,10 @@
             <strong>{{pi.post_date}}</strong><br><br>
          </div>
     {% for i in fb %}<br>
-    <strong>* {{i.Name}}</strong><br>Review: {{i.Textarea}}<br>
+    {%if  pi.id == i.Blog_id %}
+    <strong>* {{i.Name}}</strong>
+    <br>Review: {{i.Textarea}}<br>
+    {%endif%}
     {%endfor%}
     <form action="/review/review/" method="post">{% csrf_token %}
             <div class="col-sm-3 my-3">
@@ -18,6 +21,10 @@
                 <input type="text" class="form-control" id="Name" name="Name" placeholder="Name : Vipin">
                 <label for="Textarea1">Review</label>
                 <textarea class="form-control" id="Textarea1" name="Textarea1" rows="3"></textarea>
+                <div class="custom-file my-1">
+                    <input type="file" class="custom-file-input" id="File01" name="File01">
+                    <label class="custom-file-label" for="File01">Choose file</label>
+                </div>
                 <input name="blog" type="hidden" value="{{pi.id}}">
             </div>
             <button type="submit" class="btn btn-dark my-3">Commit</button>

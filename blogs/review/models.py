@@ -14,5 +14,6 @@ class Feedback(models.Model):
     Name = models.CharField(max_length=200,default='')
     Textarea = models.CharField(max_length=700,default='')
     Blog_id = models.IntegerField(default=0)
+    FileTy =models.FileField(blank=True, null=True)
     def __str__(self):
         return self.Name
