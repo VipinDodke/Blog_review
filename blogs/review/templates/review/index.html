@@ -1,0 +1,18 @@
+{% extends 'review/base.html' %}
+{%block title%}Blog_Review{%endblock%}
+{%block css%}{%endblock%}
+{%block body%}
+<h1 class="text-center">Hello Blog</h1>
+<div class="container center">
+    <!-- not reversed -->
+{% for i in t_blog %}<br>
+    <div class="container row  shadow mx-1">
+        <h3>{{i.Blog_name}}</h3><br>
+        {{i.desc}}<br>
+        <strong>{{i.post_date}}</strong><br><br>
+        <a href="/review/review/{{i.id}}/" type="button" class="btn btn-dark mx-4 mb-4">Review</a>
+    </div>
+{%endfor%}
+</div>
+
+{%endblock%}
